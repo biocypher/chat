@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BioChatter Landing Page</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+        }
+
+        .redirect-option {
+            flex: 1;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            border: none;
+        }
+
+        .redirect-option a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .redirect-option::after {
+            content: "";
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 0.5s;
+            opacity: 0;
+        }
+
+        .redirect-option.light {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), url('light-hover.png');
+        }
+
+        .redirect-option.light::after {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), url('light.png');
+        }
+
+        .redirect-option.next {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), url('next-hover.png');
+        }
+
+        .redirect-option.next::after {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)), url('next.png');
+        }
+
+        .redirect-option.light:hover::after {
+            opacity: 1;
+        }
+
+        .redirect-option.next:hover::after {
+            opacity: 1;
+        }
+
+        .redirect-option::before {
+            z-index: 3;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(172, 172, 172);
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            font-size: 5em;
+            text-align: center;
+            opacity: 1;
+            transition: opacity 0.5s;
+            mix-blend-mode: normal;
+            text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        .redirect-option:hover::before {
+            color: white;
+            mix-blend-mode: normal;
+            opacity: 1;
+        }
+
+        .redirect-option.light::before {
+            content: "BioChatter Light";
+            pointer-events: none;
+        }
+
+        .redirect-option.next::before {
+            content: "BioChatter Next";
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="redirect-option light">
+            <a href="https://light.biochatter.org"></a>
+        </div>
+        <div class="redirect-option next">
+            <a href="https://next.biochatter.org"></a>
+        </div>
+    </div>
+</body>
+
+</html>
